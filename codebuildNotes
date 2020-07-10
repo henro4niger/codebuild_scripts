@@ -1,0 +1,7 @@
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 983873808334.dkr.ecr.us-east-1.amazonaws.com
+docker build -t new_repo .
+docker tag new_repo:latest 983873808334.dkr.ecr.us-east-1.amazonaws.com/new_repo:latest
+docker push 983873808334.dkr.ecr.us-east-1.amazonaws.com/new_repo:latest
+
+Go to IAM and then attach a AmazonEC2ContainerRegistryPowerUser policy to your CodeBuild role.
+add s3 to codepipline service role
